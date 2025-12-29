@@ -17,6 +17,7 @@ const linkLabels: Record<string, string> = {
   pdf: "PDF",
   arxiv: "arXiv",
   doi: "DOI",
+  zhihu: "Zhihu",
 };
 
 type LinkListProps = {

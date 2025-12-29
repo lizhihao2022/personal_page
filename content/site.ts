@@ -11,6 +11,7 @@ export type ProjectLinks = {
   code?: string;
   demo?: string;
   slides?: string;
+  zhihu?: string;
 };
 
 export type Project = {
@@ -103,6 +104,7 @@ export const siteConfig: SiteConfig = {
       tags: ["AI", "PDE", "Survey"],
       links: {
         demo: "https://ai4pde.notion.site/",
+        zhihu: "https://www.zhihu.com/column/c_1872725027905990656",
         code: "https://github.com/lizhihao2022/Awesome-AI4PDE",
       },
       cover: "/thumbnail/ai4pde.png",
