@@ -1,6 +1,8 @@
 export type PublicationLink = {
   label: string;
   href: string;
+  stars?: number;
+  repo?: string;
 };
 
 export type PublicationEntry = {
@@ -23,9 +25,13 @@ export const publicationEntries: PublicationEntry[] = [
     year: 2025,
     venue: "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
     type: "C",
-    links: [{ label: "Arxiv", href: "https://arxiv.org/abs/2406.04822" }],
-    tags: ["Conference"],
-    logo: "/logos/sigkdd.png",
+    links: [
+      { label: "DOI", href: "https://dl.acm.org/doi/10.1145/3770854.3780179" },
+      { label: "arXiv", href: "https://arxiv.org/abs/2406.04822" },
+      { label: "Github", href: "https://github.com/lizhihao2022/m2no", stars: 0, repo: "lizhihao2022/m2no" },
+    ],
+    tags: ["Multi-Wavelet", "Multigrid"],
+    logo: "/logos/sigkdd.svg",
   },
   {
     id: "C2",
@@ -35,12 +41,12 @@ export const publicationEntries: PublicationEntry[] = [
     venue: "Proceedings of the 31th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
     type: "C",
     links: [
-      { label: "Paper", href: "https://dl.acm.org/doi/10.1145/3690624.3709173" },
-      { label: "Arxiv", href: "https://arxiv.org/abs/2411.15178" },
-      { label: "Github", href: "https://github.com/lizhihao2022/amg" },
+      { label: "DOI", href: "https://dl.acm.org/doi/10.1145/3690624.3709173" },
+      { label: "arXiv", href: "https://arxiv.org/abs/2411.15178" },
+      { label: "Github", href: "https://github.com/lizhihao2022/AMG", stars: 0, repo: "lizhihao2022/AMG" },
     ],
-    tags: ["Conference", "Graph Operators"],
-    logo: "/logos/sigkdd.png",
+    tags: ["Graph Operators", "Arbitrary Geometry"],
+    logo: "/logos/sigkdd.svg",
   },
   {
     id: "C1",
@@ -50,12 +56,12 @@ export const publicationEntries: PublicationEntry[] = [
     venue: "Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
     type: "C",
     links: [
-      { label: "Paper", href: "https://dl.acm.org/doi/10.1145/3534678.3539475" },
-      { label: "Arxiv", href: "https://arxiv.org/abs/2207.09051" },
-      { label: "Github", href: "https://github.com/marlin-codes/HICF" },
+      { label: "DOI", href: "https://dl.acm.org/doi/10.1145/3534678.3539475" },
+      { label: "arXiv", href: "https://arxiv.org/abs/2207.09051" },
+      { label: "Github", href: "https://github.com/marlin-codes/HICF", stars: 0, repo: "marlin-codes/HICF" },
     ],
-    tags: ["Conference", "Recommender Systems"],
-    logo: "/logos/sigkdd.png",
+    tags: ["Recommender Systems", "Hyperbolic"],
+    logo: "/logos/sigkdd.svg",
   },
   {
     id: "P1",
@@ -64,8 +70,8 @@ export const publicationEntries: PublicationEntry[] = [
     year: 2022,
     venue: "Preprint",
     type: "P",
-    links: [{ label: "Arxiv", href: "https://arxiv.org/abs/2202.13852" }],
-    tags: ["Preprint", "Survey"],
+    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2202.13852" }],
+    tags: ["Survey", "Hyperbolic", "Graph Neural Networks"],
     logo: "/logos/arxiv.svg",
   },
 ];

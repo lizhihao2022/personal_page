@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -7,6 +8,7 @@ import { ExternalIcon } from "@/components/icons";
 import { publicationEntries } from "@/content/publications";
 import { siteConfig } from "@/content/site";
 import Image from "next/image";
+import useSWR from "swr";
 
 const typeLabels: Record<string, string> = {
   C: "Conference",
@@ -28,7 +30,18 @@ function highlightAuthor(authors: string) {
   });
 }
 
-function LinkList({ links }: { links: { label: string; href: string }[] }) {
+function LinkList({ links }: { links: { label: string; href: string; stars?: number; repo?: string }[] }) {
+  const { data } = useSWR<Record<string, number>>(
+    "/api/github-stars",
+    async (url) => {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch stars");
+      const json = await res.json();
+      return (json?.stars ?? {}) as Record<string, number>;
+    },
+    { revalidateOnFocus: false },
+  );
+
   return (
     <div className="mt-3 flex flex-wrap gap-3 text-sm text-slate-200">
       {links.map((link) => (
@@ -37,10 +50,20 @@ function LinkList({ links }: { links: { label: string; href: string }[] }) {
           href={link.href}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 text-sm font-medium hover:text-white focus-ring"
+          className="inline-flex items-center gap-2 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
         >
           <ExternalIcon className="h-3.5 w-3.5" />
           <span>{link.label}</span>
+          {(() => {
+            const starCount =
+              link.repo && data?.[link.repo] !== undefined ? data[link.repo] : link.stars;
+            if (starCount === undefined) return null;
+            return (
+              <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
+                ★ {starCount}
+              </span>
+            );
+          })()}
         </a>
       ))}
     </div>
@@ -60,13 +83,13 @@ export default function PublicationsPage() {
           avatar={siteConfig.avatar}
         />
 
-        <div className="mt-12 space-y-8">
+        <section className="mt-12 space-y-6">
           <div className="flex items-center gap-3">
             <h2 className="text-2xl font-semibold text-white">Publications</h2>
             <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
           </div>
 
-          <div className="space-y-4">
+          <div className="mt-6 space-y-4">
             {publicationEntries.map((pub) => (
               <Card key={pub.id} className="fade-up overflow-hidden">
                 <div className="relative">
@@ -108,7 +131,7 @@ export default function PublicationsPage() {
               </Card>
             ))}
           </div>
-        </div>
+        </section>
       </main>
     </div>
   );
