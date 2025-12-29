@@ -31,7 +31,7 @@ export const publicationEntries: PublicationEntry[] = [
       { label: "GitHub", href: "https://github.com/lizhihao2022/m2no", stars: 0, repo: "lizhihao2022/m2no" },
     ],
     tags: ["Multi-Wavelet", "Multigrid"],
-    logo: "/logos/sigkdd.svg",
+    logo: "/logos/sigkdd.png",
   },
   {
     id: "C2",
@@ -46,7 +46,7 @@ export const publicationEntries: PublicationEntry[] = [
       { label: "GitHub", href: "https://github.com/lizhihao2022/AMG", stars: 0, repo: "lizhihao2022/AMG" },
     ],
     tags: ["Graph Operators", "Arbitrary Geometry"],
-    logo: "/logos/sigkdd.svg",
+    logo: "/logos/sigkdd.png",
   },
   {
     id: "C1",
@@ -61,7 +61,7 @@ export const publicationEntries: PublicationEntry[] = [
       { label: "GitHub", href: "https://github.com/marlin-codes/HICF", stars: 0, repo: "marlin-codes/HICF" },
     ],
     tags: ["Recommender Systems", "Hyperbolic"],
-    logo: "/logos/sigkdd.svg",
+    logo: "/logos/sigkdd.png",
   },
   {
     id: "P1",

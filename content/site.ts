@@ -4,6 +4,7 @@ export type SiteLinks = {
   github: string;
   scholar: string;
   linkedin?: string;
+  dblp?: string;
 };
 
 export type ProjectLinks = {
@@ -95,7 +96,8 @@ export const siteConfig: SiteConfig = {
     cv: "/Academic_CV_Zhihao.pdf",
     github: "https://github.com/lizhihao2022",
     scholar: "https://scholar.google.com/citations?hl=en&user=hDVWqfYAAAAJ",
-    linkedin: "https://linkedin.com/in/[HANDLE]",
+    dblp: "https://dblp.org/pid/40/2903-4.html",
+    linkedin: "https://www.linkedin.com/in/zhihao-li-561193246/",
   },
   featuredProjects: [
     {

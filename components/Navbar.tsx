@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { SiteLinks } from "@/content/site";
 import { cn, isExternalLink, isMailLink } from "@/lib/utils";
-import { FileIcon, GithubIcon, LinkedinIcon, MailIcon, ScholarIcon } from "./icons";
+import { DblpIcon, FileIcon, GithubIcon, LinkedinIcon, MailIcon, ScholarIcon } from "./icons";
 
 type NavbarProps = {
   name: string;
@@ -20,6 +20,7 @@ export function Navbar({ name, links }: NavbarProps) {
     { href: links.github, label: "GitHub", icon: GithubIcon },
     { href: links.scholar, label: "Scholar", icon: ScholarIcon },
     links.linkedin ? { href: links.linkedin, label: "LinkedIn", icon: LinkedinIcon } : null,
+    links.dblp ? { href: links.dblp, label: "DBLP", icon: DblpIcon } : null,
   ].filter(Boolean) as { href: string; label: string; icon: React.ComponentType<{ className?: string }> }[];
 
   return (

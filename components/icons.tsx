@@ -89,6 +89,26 @@ export function LinkedinIcon({ className, ...props }: IconProps) {
   );
 }
 
+export function DblpIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={cn("h-5 w-5", className)}
+      {...props}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M7.5 7.5h5a3 3 0 0 1 0 6h-5z" />
+      <path d="M14 10.5h2.5v6" />
+    </svg>
+  );
+}
+
 export function ExternalIcon({ className, ...props }: IconProps) {
   return (
     <svg
