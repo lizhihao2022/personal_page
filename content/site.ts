@@ -38,6 +38,28 @@ export type Publication = {
   tags?: string[];
 };
 
+export type EducationItem = {
+  school: string;
+  degree: string;
+  period: string;
+  details?: string;
+  highlights?: { label: string; url?: string }[];
+};
+
+export type ExperienceItem = {
+  role: string;
+  organization: string;
+  period: string;
+  details?: string;
+  highlights?: { label: string; url?: string }[];
+};
+
+export type TeachingItem = {
+  role: string;
+  institution: string;
+  courses: string[];
+};
+
 export type SiteConfig = {
   name: string;
   tagline: string;
@@ -47,6 +69,12 @@ export type SiteConfig = {
   links: SiteLinks;
   featuredProjects: Project[];
   selectedPublications: Publication[];
+  resume?: {
+    education: EducationItem[];
+    experience: ExperienceItem[];
+    academicService: string[];
+    teaching: TeachingItem[];
+  };
   contact: {
     email: string;
     location: string;
@@ -120,6 +148,69 @@ export const siteConfig: SiteConfig = {
     //   tags: ["Recommender", "Hyperbolic"],
     // },
   ],
+  resume: {
+    education: [
+      {
+        school: "The Hong Kong University of Science and Technology (Guangzhou)",
+        degree: "Ph.D. candidate, Data Science and Analytics",
+        period: "Sep 2022 – Present",
+        // details: "Ph.D. candidate in Data Science and Analytics.",
+        highlights: [
+          { label: "Supervisor: Prof. Wei Wang", url: "https://dbwangwei.github.io/" },
+          { label: "Co-Supervisor: Prof. Zhilu Lai", url: "https://zlaidyn.github.io/" },
+        ],
+      },
+      {
+        school: "Harbin Institute of Technology, Shenzhen",
+        degree: "Bachelor's degree, Computer Science and Technology",
+        period: "Sep 2018 – Jun 2022",
+        // details: "Bachelor's degree in Computer Science and Technology.",
+        highlights: [{ label: "Advisor: Prof. Qing Liao", url: "http://liaoqing.hitsz.edu.cn/" }],
+      },
+    ],
+    experience: [
+      {
+        role: "AI Engineering Intern",
+        organization: "Huawei 2012 Lab",
+        period: "Aug 2025 – Present",
+        details: "Led end-to-end development of an ocean modeling system on Huawei Ascend using MindSpore.",
+        highlights: [
+          { label: "Leader: Dr. Fan Yu" },
+          { label: "Mentor: Dr. Yi Zhang" },
+        ],
+      },
+      {
+        role: "Cross-Campus Study",
+        organization: "The Hong Kong University of Science and Technology (CWB)",
+        period: "Jan 2025 – Aug 2025",
+        details: "Department of Mathematics; advanced deep learning methods for PDE and materials.",
+        highlights: [
+          { label: "Host Supervisor: Prof. Yang Xiang", url: "https://www.math.hkust.edu.hk/people/faculty/profile/maxiang/" },
+        ],
+      },
+      {
+        role: "Research Internship",
+        organization: "The Chinese University of Hong Kong",
+        period: "Apr 2021 – Apr 2022",
+        details: "Department of Computer Science and Engineering; work on knowledge graphs, recommender systems, and graph neural networks in hyperbolic space.",
+        highlights: [
+          { label: "Advisor: Prof. Irwin King", url: "https://www.cse.cuhk.edu.hk/irwin.king/home" },
+          { label: "Mentor: Dr. Menglin Yang", url: "http://yangmenglin.site/" },
+        ],
+      },
+    ],
+    academicService: ["Reviewer (2025): NeurIPS, ICLR, AAAI, AI4Math@ICML"],
+    teaching: [
+      {
+        role: "Graduate Teaching Assistant",
+        institution: "The Hong Kong University of Science and Technology (Guangzhou)",
+        courses: [
+          "DSAA 5009: Deep Learning in Data Science (2024 Spring)",
+          "FUNH 5010: Introduction to Materials Informatics (2022 Fall)",
+        ],
+      },
+    ],
+  },
   contact: {
     email: "[YOUR_EMAIL]",
     location: "[City, Country]",
