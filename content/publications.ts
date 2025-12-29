@@ -12,6 +12,7 @@ export type PublicationEntry = {
   type: "C" | "J" | "P" | "T";
   links: PublicationLink[];
   tags?: string[];
+  logo?: string;
 };
 
 export const publicationEntries: PublicationEntry[] = [
@@ -24,6 +25,7 @@ export const publicationEntries: PublicationEntry[] = [
     type: "C",
     links: [{ label: "Arxiv", href: "https://arxiv.org/abs/2406.04822" }],
     tags: ["Conference"],
+    logo: "/logos/sigkdd.png",
   },
   {
     id: "C2",
@@ -38,6 +40,7 @@ export const publicationEntries: PublicationEntry[] = [
       { label: "Github", href: "https://github.com/lizhihao2022/amg" },
     ],
     tags: ["Conference", "Graph Operators"],
+    logo: "/logos/sigkdd.png",
   },
   {
     id: "C1",
@@ -52,6 +55,7 @@ export const publicationEntries: PublicationEntry[] = [
       { label: "Github", href: "https://github.com/marlin-codes/HICF" },
     ],
     tags: ["Conference", "Recommender Systems"],
+    logo: "/logos/sigkdd.png",
   },
   {
     id: "P1",
@@ -62,5 +66,6 @@ export const publicationEntries: PublicationEntry[] = [
     type: "P",
     links: [{ label: "Arxiv", href: "https://arxiv.org/abs/2202.13852" }],
     tags: ["Preprint", "Survey"],
+    logo: "/logos/arxiv.svg",
   },
 ];
