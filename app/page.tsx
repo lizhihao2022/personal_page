@@ -20,6 +20,7 @@ export default function HomePage() {
         <FeaturedSection
           projects={siteConfig.featuredProjects}
           publications={siteConfig.selectedPublications}
+          highlightAuthor={siteConfig.name}
         />
         <Footer contact={siteConfig.contact} />
       </main>

@@ -18,6 +18,7 @@ export type Project = {
   description: string;
   tags: string[];
   links: ProjectLinks;
+  cover?: string;
 };
 
 export type PublicationLinks = {
@@ -33,6 +34,8 @@ export type Publication = {
   venue: string;
   year: number;
   links: PublicationLinks;
+  cover?: string;
+  tags?: string[];
 };
 
 export type SiteConfig = {
@@ -52,7 +55,7 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   name: "Zhihao Li",
-  tagline: "[PhD Student · DSA Thrust · HKUST(GZ)]",
+  tagline: "PhD Student · DSA Thrust · HKUST(GZ)",
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://example.com",
   avatar: "/avatar.jpg",
@@ -66,13 +69,14 @@ export const siteConfig: SiteConfig = {
   featuredProjects: [
     {
       title: "Awesome AI4PDE",
-      description: "A lightweight toolkit for rapid prototyping of operator-learning architectures on multi-resolution PDE datasets.",
-      tags: ["Neural Operators", "PDE"],
+      description: "A curated list of resources and literature focusing on the intersection of Artificial Intelligence and Partial Differential Equations (PDEs). ",
+      tags: ["AI", "PDE", "Survey"],
       links: {
         paper: "https://arxiv.org/abs/0000.00000",
         code: "https://github.com/lizhihao2022/Awesome-AI4PDE",
         demo: "https://ai4pde.notion.site/",
       },
+      cover: "/thumbnail/ai4pde.png",
     },
   ],
   selectedPublications: [
@@ -86,6 +90,8 @@ export const siteConfig: SiteConfig = {
         doi: "https://papers.example.com/neural-operators.pdf",
         code: "https://github.com/lizhihao2022/m2no"
       },
+      cover: "/thumbnail/m2no.png",
+      tags: ["PDE", "Operator Learning"],
     },
     {
       title: "Harnessing Scale and Physics: A Multi-Graph Neural Operator Framework for PDEs on Arbitrary Geometries",
@@ -97,6 +103,8 @@ export const siteConfig: SiteConfig = {
         arxiv: "https://arxiv.org/abs/2411.15178",
         code: "https://github.com/lizhihao2022/amg",
       },
+      cover: "/thumbnail/amg.png",
+      tags: ["Multi-Scale", "Graph Operators"],
     },
     {
       title: "HICF: Hyperbolic Informative Collaborative Filtering",
@@ -108,6 +116,8 @@ export const siteConfig: SiteConfig = {
         arxiv: "https://arxiv.org/abs/2207.09051",
         code: "https://github.com/marlin-codes/HICF"
       },
+      cover: "/publication-placeholder.svg",
+      tags: ["Recommender", "Hyperbolic"],
     },
   ],
   contact: {

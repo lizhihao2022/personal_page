@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Project, Publication } from "@/content/site";
 import { cn, isExternalLink } from "@/lib/utils";
 import { Card } from "./Card";
@@ -18,14 +19,15 @@ const linkLabels: Record<string, string> = {
 
 type LinkListProps = {
   links: Record<string, string | undefined>;
+  className?: string;
 };
 
-function LinkList({ links }: LinkListProps) {
+function LinkList({ links, className }: LinkListProps) {
   const entries = Object.entries(links).filter(([, href]) => Boolean(href)) as [string, string][];
   if (!entries.length) return null;
 
   return (
-    <div className="mt-4 flex flex-wrap gap-3 text-sm text-slate-200">
+    <div className={cn("flex flex-wrap gap-3 text-sm text-slate-200", className)}>
       {entries.map(([key, href]) => (
         isExternalLink(href) ? (
           <a
@@ -57,9 +59,46 @@ function LinkList({ links }: LinkListProps) {
 type FeaturedSectionProps = {
   projects: Project[];
   publications: Publication[];
+  highlightAuthor?: string;
 };
 
-export function FeaturedSection({ projects, publications }: FeaturedSectionProps) {
+type CoverProps = {
+  src?: string;
+  alt: string;
+  fallback: string;
+};
+
+function Cover({ src, alt, fallback }: CoverProps) {
+  const source = src || fallback;
+  return (
+    <div className="relative h-28 w-full overflow-hidden rounded-xl border border-white/10 bg-white/5 sm:h-24 sm:w-36">
+      <Image
+        src={source}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(max-width: 640px) 100vw, 160px"
+        priority={false}
+      />
+    </div>
+  );
+}
+
+function renderAuthors(authors: string, highlight?: string) {
+  if (!highlight) return authors;
+  const parts = authors.split(",").map((p) => p.trim());
+  return parts.map((part, idx) => {
+    const isYou = part.toLowerCase().includes(highlight.toLowerCase());
+    return (
+      <span key={`${part}-${idx}`} className={isYou ? "font-semibold text-white" : undefined}>
+        {part}
+        {idx < parts.length - 1 ? ", " : ""}
+      </span>
+    );
+  });
+}
+
+export function FeaturedSection({ projects, publications, highlightAuthor }: FeaturedSectionProps) {
   return (
     <div className="mt-12 space-y-12">
       <section className="fade-up" style={{ animationDelay: "220ms" }}>
@@ -76,20 +115,21 @@ export function FeaturedSection({ projects, publications }: FeaturedSectionProps
               className="fade-up"
               style={{ animationDelay: `${260 + idx * 70}ms` }}
             >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <Cover src={project.cover} fallback="/project-placeholder.svg" alt={project.title} />
+                <div className="flex-1">
                   <h3 className="text-lg font-semibold text-white">{project.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-200">{project.description}</p>
                 </div>
               </div>
-              {project.tags?.length ? (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags?.map((tag) => (
                     <Tag key={tag}>{tag}</Tag>
                   ))}
                 </div>
-              ) : null}
-              <LinkList links={project.links} />
+                <LinkList links={project.links} className="justify-start sm:justify-end" />
+              </div>
             </Card>
           ))}
         </div>
@@ -109,15 +149,26 @@ export function FeaturedSection({ projects, publications }: FeaturedSectionProps
               className="fade-up"
               style={{ animationDelay: `${300 + idx * 60}ms` }}
             >
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{pub.venue}</p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <Cover src={pub.cover} fallback="/publication-placeholder.svg" alt={pub.title} />
+                <div className="flex-1">
+                  <div className="flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-slate-400">
+                    <span>{pub.venue}</span>
+                    <span className="h-px w-4 rounded-full bg-white/30" aria-hidden />
+                    <span>{pub.year}</span>
+                  </div>
                   <h3 className="mt-1 text-lg font-semibold text-white">{pub.title}</h3>
-                  <p className="text-sm text-slate-300">{pub.authors}</p>
-                  <p className="text-sm text-slate-400">{pub.year}</p>
+                  <p className="text-sm text-slate-300">{renderAuthors(pub.authors, highlightAuthor)}</p>
                 </div>
               </div>
-              <LinkList links={pub.links} />
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap gap-2">
+                  {pub.tags?.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </div>
+                <LinkList links={pub.links} className="justify-start sm:justify-end" />
+              </div>
             </Card>
           ))}
         </div>
