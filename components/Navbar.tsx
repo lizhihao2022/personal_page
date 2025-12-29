@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SiteLinks } from "@/content/site";
 import { cn, isExternalLink, isMailLink } from "@/lib/utils";
 import { DblpIcon, FileIcon, GithubIcon, LinkedinIcon, MailIcon, ScholarIcon } from "./icons";
@@ -27,8 +28,7 @@ export function Navbar({ name, links }: NavbarProps) {
     <header className="sticky top-0 z-30 border-b border-white/5 bg-surface/80 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight text-white no-underline focus-ring">
-          <span className="text-sm uppercase text-slate-400">Portfolio</span>
-          <span className="text-base">{name}</span>
+          <Image src="/logo.png" alt="Logo" width={120} height={32} className="h-7 w-auto object-contain" priority />
         </Link>
         <nav className="flex items-center gap-2">
           {items.map((item) => (

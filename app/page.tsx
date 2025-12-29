@@ -4,6 +4,7 @@ import { FeaturedSection } from "@/components/FeaturedSection";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
+import { PageTabs } from "@/components/PageTabs";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,9 @@ export default function HomePage() {
           links={siteConfig.links}
           avatar={siteConfig.avatar}
         />
+        <div className="sticky top-5 z-30 mt-6 flex justify-start md:justify-center">
+          <PageTabs className="md:-translate-x-14" />
+        </div>
         <FeaturedSection
           projects={siteConfig.featuredProjects}
           publications={siteConfig.selectedPublications}

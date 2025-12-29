@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { Card } from "@/components/Card";
 import { Tag } from "@/components/Tag";
 import { ExternalIcon } from "@/components/icons";
+import { PageTabs } from "@/components/PageTabs";
 import { publicationEntries } from "@/content/publications";
 import { siteConfig } from "@/content/site";
 import Image from "next/image";
@@ -82,6 +83,9 @@ export default function PublicationsPage() {
           links={siteConfig.links}
           avatar={siteConfig.avatar}
         />
+        <div className="sticky top-5 z-30 mt-6 flex justify-start md:justify-center">
+          <PageTabs className="md:-translate-x-14" />
+        </div>
 
         <section className="mt-12 space-y-6">
           <div className="flex items-center gap-3">
