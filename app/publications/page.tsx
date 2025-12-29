@@ -55,8 +55,8 @@ function LinkList({ links }: { links: { label: string; href: string; stars?: num
           <ExternalIcon className="h-3.5 w-3.5" />
           <span>{link.label}</span>
           {(() => {
-            const starCount =
-              link.repo && data?.[link.repo] !== undefined ? data[link.repo] : link.stars;
+            const key = link.repo?.toLowerCase();
+            const starCount = key && data?.[key] !== undefined ? data[key] : link.stars;
             if (starCount === undefined) return null;
             return (
               <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">

@@ -28,7 +28,7 @@ export const publicationEntries: PublicationEntry[] = [
     links: [
       { label: "DOI", href: "https://dl.acm.org/doi/10.1145/3770854.3780179" },
       { label: "arXiv", href: "https://arxiv.org/abs/2406.04822" },
-      { label: "Github", href: "https://github.com/lizhihao2022/m2no", stars: 0, repo: "lizhihao2022/m2no" },
+      { label: "GitHub", href: "https://github.com/lizhihao2022/m2no", stars: 0, repo: "lizhihao2022/m2no" },
     ],
     tags: ["Multi-Wavelet", "Multigrid"],
     logo: "/logos/sigkdd.svg",
@@ -43,7 +43,7 @@ export const publicationEntries: PublicationEntry[] = [
     links: [
       { label: "DOI", href: "https://dl.acm.org/doi/10.1145/3690624.3709173" },
       { label: "arXiv", href: "https://arxiv.org/abs/2411.15178" },
-      { label: "Github", href: "https://github.com/lizhihao2022/AMG", stars: 0, repo: "lizhihao2022/AMG" },
+      { label: "GitHub", href: "https://github.com/lizhihao2022/AMG", stars: 0, repo: "lizhihao2022/AMG" },
     ],
     tags: ["Graph Operators", "Arbitrary Geometry"],
     logo: "/logos/sigkdd.svg",
@@ -58,7 +58,7 @@ export const publicationEntries: PublicationEntry[] = [
     links: [
       { label: "DOI", href: "https://dl.acm.org/doi/10.1145/3534678.3539475" },
       { label: "arXiv", href: "https://arxiv.org/abs/2207.09051" },
-      { label: "Github", href: "https://github.com/marlin-codes/HICF", stars: 0, repo: "marlin-codes/HICF" },
+      { label: "GitHub", href: "https://github.com/marlin-codes/HICF", stars: 0, repo: "marlin-codes/HICF" },
     ],
     tags: ["Recommender Systems", "Hyperbolic"],
     logo: "/logos/sigkdd.svg",

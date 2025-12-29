@@ -1,13 +1,33 @@
 import { NextResponse } from "next/server";
 import { publicationEntries } from "@/content/publications";
+import { siteConfig } from "@/content/site";
+
+const parseRepo = (href: string | undefined) => {
+  if (!href) return undefined;
+  const match = href.match(/github\.com\/(?<owner>[\w.-]+)\/(?<repo>[\w.-]+)/i);
+  if (!match || !match.groups) return undefined;
+  return `${match.groups.owner}/${match.groups.repo}`.toLowerCase();
+};
 
 const repos = Array.from(
   new Set(
-    publicationEntries.flatMap((pub) =>
-      pub.links
-        .map((link) => link.repo)
+    [
+      // From publications (explicit repo field)
+      ...publicationEntries.flatMap((pub) =>
+        pub.links
+          .map((link) => link.repo)
+          .filter((repo): repo is string => Boolean(repo))
+          .map((repo) => repo.toLowerCase()),
+      ),
+      // From siteConfig featured projects (code/demo links)
+      ...siteConfig.featuredProjects
+        .map((p) => parseRepo(p.links.code))
         .filter((repo): repo is string => Boolean(repo)),
-    ),
+      // From siteConfig selected publications (code links)
+      ...siteConfig.selectedPublications
+        .map((p) => parseRepo(p.links.code))
+        .filter((repo): repo is string => Boolean(repo)),
+    ],
   ),
 );
 

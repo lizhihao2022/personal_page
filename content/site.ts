@@ -44,6 +44,7 @@ export type EducationItem = {
   period: string;
   details?: string;
   highlights?: { label: string; url?: string }[];
+  logo?: string;
 };
 
 export type ExperienceItem = {
@@ -52,6 +53,7 @@ export type ExperienceItem = {
   period: string;
   details?: string;
   highlights?: { label: string; url?: string }[];
+  logo?: string;
 };
 
 export type TeachingItem = {
@@ -100,9 +102,8 @@ export const siteConfig: SiteConfig = {
       description: "A curated list of resources and literature focusing on the intersection of Artificial Intelligence and Partial Differential Equations (PDEs). ",
       tags: ["AI", "PDE", "Survey"],
       links: {
-        paper: "https://arxiv.org/abs/0000.00000",
-        code: "https://github.com/lizhihao2022/Awesome-AI4PDE",
         demo: "https://ai4pde.notion.site/",
+        code: "https://github.com/lizhihao2022/Awesome-AI4PDE",
       },
       cover: "/thumbnail/ai4pde.png",
     },
@@ -129,7 +130,7 @@ export const siteConfig: SiteConfig = {
       links: {
         doi: "https://dl.acm.org/doi/10.1145/3690624.3709173",
         arxiv: "https://arxiv.org/abs/2411.15178",
-        code: "https://github.com/lizhihao2022/amg",
+        code: "https://github.com/lizhihao2022/AMG",
       },
       cover: "/thumbnail/amg.png",
       tags: ["Multi-Scale", "Arbitrary Geometry", "Graph Operators"],
@@ -146,6 +147,7 @@ export const siteConfig: SiteConfig = {
           { label: "Supervisor: Prof. Wei Wang", url: "https://dbwangwei.github.io/" },
           { label: "Co-Supervisor: Prof. Zhilu Lai", url: "https://zlaidyn.github.io/" },
         ],
+        logo: "/logos/ust.png",
       },
       {
         school: "Harbin Institute of Technology, Shenzhen",
@@ -153,6 +155,7 @@ export const siteConfig: SiteConfig = {
         period: "Sep 2018 – Jun 2022",
         // details: "Bachelor's degree in Computer Science and Technology.",
         highlights: [{ label: "Advisor: Prof. Qing Liao", url: "http://liaoqing.hitsz.edu.cn/" }],
+        logo: "/logos/hit.png",
       },
     ],
     experience: [
@@ -165,6 +168,7 @@ export const siteConfig: SiteConfig = {
           { label: "Leader: Dr. Fan Yu" },
           { label: "Mentor: Dr. Yi Zhang" },
         ],
+        logo: "/logos/huawei.png",
       },
       {
         role: "Cross-Campus Study",
@@ -174,6 +178,7 @@ export const siteConfig: SiteConfig = {
         highlights: [
           { label: "Host Supervisor: Prof. Yang Xiang", url: "https://www.math.hkust.edu.hk/people/faculty/profile/maxiang/" },
         ],
+        logo: "/logos/ust.png",
       },
       {
         role: "Research Internship",
@@ -184,6 +189,7 @@ export const siteConfig: SiteConfig = {
           { label: "Advisor: Prof. Irwin King", url: "https://www.cse.cuhk.edu.hk/irwin.king/home" },
           { label: "Mentor: Dr. Menglin Yang", url: "http://yangmenglin.site/" },
         ],
+        logo: "/logos/cuhk.png",
       },
     ],
     academicService: ["Reviewer (2025): NeurIPS, ICLR, AAAI, AI4Math@ICML"],

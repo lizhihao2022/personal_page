@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import useSWR from "swr";
 import { Project, Publication } from "@/content/site";
 import { cn, isExternalLink } from "@/lib/utils";
 import { Card } from "./Card";
@@ -9,7 +11,7 @@ import { Tag } from "./Tag";
 
 const linkLabels: Record<string, string> = {
   paper: "Paper",
-  code: "Code",
+  code: "GitHub",
   demo: "Demo",
   slides: "Slides",
   pdf: "PDF",
@@ -23,6 +25,23 @@ type LinkListProps = {
 };
 
 function LinkList({ links, className }: LinkListProps) {
+  const { data } = useSWR<Record<string, number>>(
+    "/api/github-stars",
+    async (url) => {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch stars");
+      const json = await res.json();
+      return (json?.stars ?? {}) as Record<string, number>;
+    },
+    { revalidateOnFocus: false },
+  );
+
+  const getRepoFromHref = (href: string) => {
+    const match = href.match(/github\.com\/(?<owner>[\w.-]+)\/(?<repo>[\w.-]+)/i);
+    if (!match || !match.groups) return undefined;
+    return `${match.groups.owner}/${match.groups.repo}`.toLowerCase();
+  };
+
   const entries = Object.entries(links).filter(([, href]) => Boolean(href)) as [string, string][];
   if (!entries.length) return null;
 
@@ -33,22 +52,42 @@ function LinkList({ links, className }: LinkListProps) {
           <a
             key={key}
             href={href}
-            className="inline-flex items-center gap-1 text-sm font-medium hover:text-white focus-ring"
+            className="inline-flex items-center gap-2 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
             target="_blank"
             rel="noreferrer"
           >
             <ExternalIcon className="h-3.5 w-3.5" />
             <span>{linkLabels[key] ?? key}</span>
+            {(() => {
+              const repo = getRepoFromHref(href);
+              const starCount = repo && data?.[repo];
+              if (starCount === undefined) return null;
+              return (
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
+                  ★ {starCount}
+                </span>
+              );
+            })()}
           </a>
         ) : (
           <Link
             key={key}
             href={href}
-            className="inline-flex items-center gap-1 text-sm font-medium hover:text-white focus-ring"
+            className="inline-flex items-center gap-2 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
             prefetch
           >
             <ExternalIcon className="h-3.5 w-3.5" />
             <span>{linkLabels[key] ?? key}</span>
+            {(() => {
+              const repo = getRepoFromHref(href);
+              const starCount = repo && data?.[repo];
+              if (starCount === undefined) return null;
+              return (
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
+                  ★ {starCount}
+                </span>
+              );
+            })()}
           </Link>
         )
       ))}

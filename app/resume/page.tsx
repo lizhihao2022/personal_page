@@ -4,6 +4,7 @@ import { Card } from "@/components/Card";
 import { Tag } from "@/components/Tag";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import Image from "next/image";
 
 export const metadata = {
   title: "Resume",
@@ -66,22 +67,32 @@ export default function ResumePage() {
               </div>
               <div className="mt-6 space-y-4">
                 {resume.education.map((edu) => (
-                  <Card key={`${edu.school}-${edu.period}`}>
-                    <div className="flex flex-col gap-2">
-                      <div>
-                        <p className="text-sm uppercase tracking-[0.18em] text-slate-400 break-words">{edu.school}</p>
-                        <p className="text-sm text-slate-400">{edu.period}</p>
-                        <h3 className="mt-1 text-lg font-semibold text-white">{edu.degree}</h3>
+                  <Card key={`${edu.school}-${edu.period}`} className="overflow-hidden">
+                    <div className="relative">
+                      {edu.logo ? (
+                        <div
+                          className="pointer-events-none absolute right-2 top-3 h-12 w-12 opacity-25 sm:right-3 sm:top-4 sm:h-16 sm:w-16"
+                          style={{ transform: "translate(20%, -30%)" }}
+                        >
+                          <Image src={edu.logo} alt={`${edu.school} logo`} fill className="object-contain" sizes="56px" />
+                        </div>
+                      ) : null}
+                      <div className="relative z-10 flex flex-col gap-2">
+                        <div>
+                          <p className="text-sm uppercase tracking-[0.18em] text-slate-400 break-words">{edu.school}</p>
+                          <p className="text-sm text-slate-400">{edu.period}</p>
+                          <h3 className="mt-1 text-lg font-semibold text-white">{edu.degree}</h3>
+                        </div>
+                        {edu.details ? <p className="text-sm text-slate-300">{edu.details}</p> : null}
+                        {edu.highlights?.length ? (
+                          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300">
+                            {edu.highlights.map((item) => (
+                              <li key={item.label}>{renderHighlight(item)}</li>
+                            ))}
+                          </ul>
+                        ) : null}
                       </div>
                     </div>
-                    {edu.details ? <p className="mt-2 text-sm text-slate-300">{edu.details}</p> : null}
-                    {edu.highlights?.length ? (
-                      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300">
-                        {edu.highlights.map((item) => (
-                          <li key={item.label}>{renderHighlight(item)}</li>
-                        ))}
-                      </ul>
-                    ) : null}
                   </Card>
                 ))}
               </div>
@@ -96,26 +107,36 @@ export default function ResumePage() {
               </div>
               <div className="mt-6 space-y-4">
                 {resume.experience.map((exp) => (
-                  <Card key={`${exp.role}-${exp.organization}-${exp.period}`}>
-                    <div className="flex flex-col gap-2">
-                      <div>
-                        <p className="text-sm uppercase tracking-[0.18em] text-slate-400 break-words">{exp.organization}</p>
-                        <div className="flex flex-wrap items-baseline gap-2">
-                          <h3 className="text-lg font-semibold text-white">{exp.role}</h3>
-                          <span className="text-sm text-slate-400">{exp.period}</span>
+                  <Card key={`${exp.role}-${exp.organization}-${exp.period}`} className="overflow-hidden">
+                    <div className="relative">
+                      {exp.logo ? (
+                        <div
+                          className="pointer-events-none absolute right-2 top-3 h-12 w-12 opacity-25 sm:right-3 sm:top-4 sm:h-16 sm:w-16"
+                          style={{ transform: "translate(20%, -30%)" }}
+                        >
+                          <Image src={exp.logo} alt={`${exp.organization} logo`} fill className="object-contain" sizes="56px" />
                         </div>
+                      ) : null}
+                      <div className="relative z-10 flex flex-col gap-2">
+                        <div>
+                          <p className="text-sm uppercase tracking-[0.18em] text-slate-400 break-words">{exp.organization}</p>
+                          <div className="flex flex-wrap items-baseline gap-2">
+                            <h3 className="text-lg font-semibold text-white">{exp.role}</h3>
+                            <span className="text-sm text-slate-400">{exp.period}</span>
+                          </div>
+                        </div>
+                        {exp.details ? <p className="text-sm text-slate-300">{exp.details}</p> : null}
+                        {exp.highlights?.length ? (
+                          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300">
+                            {exp.highlights.map((item) => (
+                              <li key={item.label}>
+                                {renderHighlight(item)}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
                       </div>
                     </div>
-                    {exp.details ? <p className="mt-2 text-sm text-slate-300">{exp.details}</p> : null}
-                    {exp.highlights?.length ? (
-                      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300">
-                        {exp.highlights.map((item) => (
-                          <li key={item.label}>
-                            {renderHighlight(item)}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
                   </Card>
                 ))}
               </div>
