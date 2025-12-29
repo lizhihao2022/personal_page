@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { SiteConfig } from "@/content/site";
 
-const labelStyles = "text-xs uppercase tracking-[0.2em] text-slate-400";
+const labelStyles = "text-xs uppercase tracking-[0.2em] text-amber-300";
 
 export function Hero({
   name,

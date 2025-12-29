@@ -86,12 +86,12 @@ export const siteConfig: SiteConfig = {
       venue: "SIGKDD",
       year: 2026,
       links: {
+        doi: "https://dl.acm.org/doi/10.1145/3770854.3780179",
         arxiv: "https://arxiv.org/abs/2406.04822",
-        doi: "https://papers.example.com/neural-operators.pdf",
         code: "https://github.com/lizhihao2022/m2no"
       },
       cover: "/thumbnail/m2no.png",
-      tags: ["PDE", "Operator Learning"],
+      tags: ["Multi-Scale", "Multigrid", "Multi-Wavelet"],
     },
     {
       title: "Harnessing Scale and Physics: A Multi-Graph Neural Operator Framework for PDEs on Arbitrary Geometries",
@@ -104,21 +104,21 @@ export const siteConfig: SiteConfig = {
         code: "https://github.com/lizhihao2022/amg",
       },
       cover: "/thumbnail/amg.png",
-      tags: ["Multi-Scale", "Graph Operators"],
+      tags: ["Multi-Scale", "Arbitrary Geometry", "Graph Operators"],
     },
-    {
-      title: "HICF: Hyperbolic Informative Collaborative Filtering",
-      authors: "Menglin Yang, Zhihao Li, Min Zhou, Jiahong Liu, Irwin King",
-      venue: "SIGKDD",
-      year: 2022,
-      links: {
-        doi: "https://dl.acm.org/doi/10.1145/3534678.3539475",
-        arxiv: "https://arxiv.org/abs/2207.09051",
-        code: "https://github.com/marlin-codes/HICF"
-      },
-      cover: "/publication-placeholder.svg",
-      tags: ["Recommender", "Hyperbolic"],
-    },
+    // {
+    //   title: "HICF: Hyperbolic Informative Collaborative Filtering",
+    //   authors: "Menglin Yang, Zhihao Li, Min Zhou, Jiahong Liu, Irwin King",
+    //   venue: "SIGKDD",
+    //   year: 2022,
+    //   links: {
+    //     doi: "https://dl.acm.org/doi/10.1145/3534678.3539475",
+    //     arxiv: "https://arxiv.org/abs/2207.09051",
+    //     code: "https://github.com/marlin-codes/HICF"
+    //   },
+    //   cover: "/publication-placeholder.svg",
+    //   tags: ["Recommender", "Hyperbolic"],
+    // },
   ],
   contact: {
     email: "[YOUR_EMAIL]",

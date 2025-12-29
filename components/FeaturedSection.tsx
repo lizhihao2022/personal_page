@@ -103,9 +103,9 @@ export function FeaturedSection({ projects, publications, highlightAuthor }: Fea
     <div className="mt-12 space-y-12">
       <section className="fade-up" style={{ animationDelay: "220ms" }}>
         <div className="flex items-center justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Featured Work</p>
-            <h2 className="mt-2 text-2xl font-semibold">Projects</h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-semibold">Projects</h2>
+            <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
           </div>
         </div>
         <div className="mt-6 space-y-4">
@@ -137,9 +137,9 @@ export function FeaturedSection({ projects, publications, highlightAuthor }: Fea
 
       <section className="fade-up" style={{ animationDelay: "260ms" }}>
         <div className="flex items-center justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Writing</p>
-            <h2 className="mt-2 text-2xl font-semibold">Selected Publications</h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-semibold">Selected Publications</h2>
+            <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
           </div>
         </div>
         <div className="mt-6 space-y-4">
