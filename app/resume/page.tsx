@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import { siteConfig, type ExperienceItem } from "@/content/site";
 import { Card } from "@/components/Card";
 import { Tag } from "@/components/Tag";
 import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
 
 export const metadata = {
   title: "Resume",
@@ -49,24 +49,22 @@ export default function ResumePage() {
     <div className="bg-surface text-slate-100">
       <Navbar name={siteConfig.name} links={siteConfig.links} />
       <main className="mx-auto max-w-3xl px-6 pb-16 pt-10 sm:pt-14">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-amber-300">Resume</p>
-            <h1 className="mt-2 text-3xl font-semibold text-white">Overview</h1>
-            <p className="mt-2 text-sm text-slate-300">
-              Education, experience, academic service, and teaching.
-            </p>
-          </div>
-        </div>
+        <Hero
+          name={siteConfig.name}
+          tagline={siteConfig.tagline}
+          bio={siteConfig.bio}
+          links={siteConfig.links}
+          avatar={siteConfig.avatar}
+        />
 
-        <div className="mt-10 space-y-10">
+        <div className="mt-12 space-y-12">
           {resume?.education?.length ? (
-            <section className="space-y-4">
+            <section>
               <div className="flex items-center gap-3">
                 <h2 className="text-2xl font-semibold text-white">Education</h2>
                 <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
               </div>
-              <div className="space-y-3">
+              <div className="mt-6 space-y-4">
                 {resume.education.map((edu) => (
                   <Card key={`${edu.school}-${edu.period}`}>
                     <div className="flex flex-col gap-2">
@@ -91,12 +89,12 @@ export default function ResumePage() {
           ) : null}
 
           {resume?.experience?.length ? (
-            <section className="space-y-4">
+            <section>
               <div className="flex items-center gap-3">
                 <h2 className="text-2xl font-semibold text-white">Experience</h2>
                 <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
               </div>
-              <div className="space-y-3">
+              <div className="mt-6 space-y-4">
                 {resume.experience.map((exp) => (
                   <Card key={`${exp.role}-${exp.organization}-${exp.period}`}>
                     <div className="flex flex-col gap-2">

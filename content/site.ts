@@ -134,19 +134,6 @@ export const siteConfig: SiteConfig = {
       cover: "/thumbnail/amg.png",
       tags: ["Multi-Scale", "Arbitrary Geometry", "Graph Operators"],
     },
-    // {
-    //   title: "HICF: Hyperbolic Informative Collaborative Filtering",
-    //   authors: "Menglin Yang, Zhihao Li, Min Zhou, Jiahong Liu, Irwin King",
-    //   venue: "SIGKDD",
-    //   year: 2022,
-    //   links: {
-    //     doi: "https://dl.acm.org/doi/10.1145/3534678.3539475",
-    //     arxiv: "https://arxiv.org/abs/2207.09051",
-    //     code: "https://github.com/marlin-codes/HICF"
-    //   },
-    //   cover: "/publication-placeholder.svg",
-    //   tags: ["Recommender", "Hyperbolic"],
-    // },
   ],
   resume: {
     education: [
