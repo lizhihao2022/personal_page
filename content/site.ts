@@ -57,11 +57,11 @@ export const siteConfig: SiteConfig = {
   name: "Zhihao Li",
   tagline: "PhD Student · DSA Thrust · HKUST(GZ)",
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
-  siteUrl: "https://example.com",
+  siteUrl: "https://lizhihao.me",
   avatar: "/avatar.jpg",
   links: {
     email: "mailto:zli416@connect.hkust-gz.edu.cn",
-    cv: "/files/cv.pdf",
+    cv: "/Academic_CV_Zhihao.pdf",
     github: "https://github.com/lizhihao2022",
     scholar: "https://scholar.google.com/citations?hl=en&user=hDVWqfYAAAAJ",
     linkedin: "https://linkedin.com/in/[HANDLE]",

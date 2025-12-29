@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { SiteConfig } from "@/content/site";
-import { LinkButton } from "./LinkButton";
 
 const labelStyles = "text-xs uppercase tracking-[0.2em] text-slate-400";
 
@@ -33,17 +32,6 @@ export function Hero({
             />
           </div>
         ) : null}
-      </div>
-      <div className="mt-6 flex flex-wrap items-center gap-3">
-        <LinkButton href={links.cv} variant="primary">
-          <span>View CV</span>
-        </LinkButton>
-        <LinkButton href={links.email}>
-          <span>Contact</span>
-        </LinkButton>
-        <LinkButton href={links.github}>
-          <span>GitHub</span>
-        </LinkButton>
       </div>
     </section>
   );
