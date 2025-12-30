@@ -66,10 +66,13 @@ export type TeachingItem = {
 
 export type SiteConfig = {
   name: string;
+  siteName: string;
   tagline: string;
   bio: string;
   siteUrl?: string;
   avatar?: string;
+  lastUpdated: string;
+  sourceUrl?: string;
   links: SiteLinks;
   featuredProjects: Project[];
   selectedPublications: Publication[];
@@ -87,10 +90,13 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   name: "Zhihao Li",
+  siteName: "Zhihao Li",
   tagline: "PhD Student · DSA Thrust · HKUST(GZ)",
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://lizhihao.me",
   avatar: "/avatar.jpg",
+  lastUpdated: "2025-12-30",
+  sourceUrl: "https://github.com/lizhihao2022/personal_page",
   links: {
     email: "mailto:zli416@connect.hkust-gz.edu.cn",
     cv: "/Academic_CV_Zhihao.pdf",
@@ -209,7 +215,7 @@ export const siteConfig: SiteConfig = {
     ],
   },
   contact: {
-    email: "[YOUR_EMAIL]",
-    location: "[City, Country]",
+    email: "[zli416ATconnect.hkust-gz.edu.cn]",
+    location: "[Shenzhen, China]",
   },
 };

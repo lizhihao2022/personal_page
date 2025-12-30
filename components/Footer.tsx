@@ -1,24 +1,30 @@
 import React from "react";
-import { SiteConfig } from "@/content/site";
+import { siteConfig } from "@/content/site";
 
-export function Footer({ contact }: Pick<SiteConfig, "contact">) {
+export function Footer() {
+  const year = new Date().getFullYear();
+  const displayDate = process.env.NEXT_PUBLIC_BUILD_DATE || siteConfig.lastUpdated || "N/A";
   return (
-    <footer className="mt-16 border-t border-white/5 pt-8">
-      <div className="flex flex-col gap-3 text-sm text-slate-300 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-base font-semibold text-white">Get in touch</p>
-          <p className="mt-1 text-sm text-slate-400">{contact.location}</p>
+    <footer className="mt-16 border-t border-white/10 pt-4">
+      <div className="mx-auto flex max-w-3xl flex-col gap-2 px-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
+        <div className="flex flex-col gap-1">
+          <span>© {year} {siteConfig.siteName}</span>
+          <span className="text-white/50">{siteConfig.contact.location}</span>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <a
-            href={`mailto:${contact.email}`}
-            className="rounded-full bg-white/5 px-3 py-2 text-sm font-medium text-slate-100 no-underline transition hover:bg-white/10 focus-ring"
-          >
-            {contact.email}
-          </a>
+        <div className="flex flex-col items-start gap-1 sm:items-end">
+          <span className="font-mono text-white/60">Last updated: {displayDate}</span>
+          {siteConfig.sourceUrl ? (
+            <a
+              href={siteConfig.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-white/50 transition hover:text-white/80 focus-ring"
+            >
+              Source
+            </a>
+          ) : null}
         </div>
       </div>
-      <p className="mt-4 text-xs text-slate-500">Minimal personal page built with Next.js & Tailwind CSS.</p>
     </footer>
   );
 }

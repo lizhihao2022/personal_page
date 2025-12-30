@@ -12,6 +12,7 @@ import { Tag } from "@/components/Tag";
 import { Header } from "@/components/layout/Header";
 import { useHeaderMode } from "@/hooks/useHeaderMode";
 import { ExternalIcon } from "@/components/icons";
+import useSWR from "swr";
 
 type HighlightItem = NonNullable<ExperienceItem["highlights"]>[number];
 const typeLabels: Record<string, string> = {
@@ -69,6 +70,22 @@ function highlightAuthor(authors: string) {
 export default function HomePage() {
   const { sentinelRef, isCompact } = useHeaderMode();
   const resume = siteConfig.resume;
+  const { data: starData } = useSWR<Record<string, number>>(
+    "/api/github-stars",
+    async (url) => {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch stars");
+      const json = await res.json();
+      return (json?.stars ?? {}) as Record<string, number>;
+    },
+    { revalidateOnFocus: false },
+  );
+
+  const getRepoFromHref = (href: string) => {
+    const match = href.match(/github\.com\/(?<owner>[\w.-]+)\/(?<repo>[\w.-]+)/i);
+    if (!match || !match.groups) return undefined;
+    return `${match.groups.owner}/${match.groups.repo}`.toLowerCase();
+  };
 
   return (
     <div className="bg-surface text-slate-100">
@@ -272,6 +289,16 @@ export default function HomePage() {
                           >
                             <ExternalIcon className="h-3.5 w-3.5" />
                             <span>{link.label}</span>
+                            {(() => {
+                              const repo = link.repo ?? getRepoFromHref(link.href);
+                              const starCount = repo ? starData?.[repo.toLowerCase()] ?? link.stars : undefined;
+                              if (starCount === undefined) return null;
+                              return (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
+                                  ★ {starCount}
+                                </span>
+                              );
+                            })()}
                           </a>
                         ))}
                       </div>
@@ -283,7 +310,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <Footer contact={siteConfig.contact} />
+        <Footer />
       </main>
     </div>
   );

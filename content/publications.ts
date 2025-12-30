@@ -19,6 +19,19 @@ export type PublicationEntry = {
 
 export const publicationEntries: PublicationEntry[] = [
   {
+    id: "P2",
+    title: " Neural Preconditioning Operator for Efficient PDE Solves",
+    authors: "Zhihao Li, Di Xiao, Zhilu Lai, Wei Wang",
+    year: 2025,
+    venue: "Preprint",
+    type: "P",
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2502.01337" },
+    ],
+    tags: ["Preconditioner", "PDE Solvers"],
+    logo: "/logos/arxiv.svg",
+  },
+  {
     id: "C3",
     title: "M2NO: An Efficient Multi-Resolution Operator Framework for Dynamic Multi-Scale PDE Solvers",
     authors: "Zhihao Li, Zhilu Lai, Xiaobo Zhang, Wei Wang",
