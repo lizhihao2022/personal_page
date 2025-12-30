@@ -261,14 +261,14 @@ export default function HomePage() {
                       ))}
                     </div>
                     {pub.links?.length ? (
-                      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200">
+                      <div className="flex flex-wrap items-center gap-2 text-sm text-slate-200">
                         {pub.links.map((link) => (
                           <a
                             key={link.href}
                             href={link.href}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
                           >
                             <ExternalIcon className="h-3.5 w-3.5" />
                             <span>{link.label}</span>

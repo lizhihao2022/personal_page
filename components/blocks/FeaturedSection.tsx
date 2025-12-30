@@ -52,7 +52,7 @@ function LinkList({ links, className }: LinkListProps) {
           <a
             key={key}
             href={href}
-            className="inline-flex items-center gap-2 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
+              className="inline-flex items-center gap-1.5 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
             target="_blank"
             rel="noreferrer"
           >
