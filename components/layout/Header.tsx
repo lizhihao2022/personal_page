@@ -34,15 +34,17 @@ export function Header({ name, links, compact }: HeaderProps) {
         compact ? "bg-surface/90 backdrop-blur-md py-2" : "bg-surface/70 backdrop-blur-sm py-4",
       )}
     >
-      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-6">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="mx-auto grid max-w-3xl grid-cols-1 items-center gap-3 px-6 sm:grid-cols-[auto,1fr,auto]">
+        <div className="flex items-center gap-3">
           <Link href="#home" className="flex items-center gap-2 text-white no-underline focus-ring">
             <Image src="/logo.png" alt="Logo" width={32} height={32} className="h-8 w-auto object-contain" priority />
             <span className="text-sm font-semibold tracking-tight text-slate-100">{name}</span>
           </Link>
+        </div>
+        <div className="flex justify-center sm:justify-center">
           <Tabs compact={compact} />
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center justify-start gap-1.5 sm:justify-end">
           {items.map((item) =>
             isExternalLink(item.href) || isMailLink(item.href) ? (
               <a
