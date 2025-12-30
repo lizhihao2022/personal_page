@@ -101,9 +101,9 @@ export default function HomePage() {
           <div className="mt-8 space-y-12">
             {resume?.education?.length ? (
               <section>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-semibold text-white">Education</h3>
-                  <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Education</h3>
+                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
                 </div>
                 <div className="mt-6 space-y-4">
                   {resume.education.map((edu) => (
@@ -141,9 +141,9 @@ export default function HomePage() {
 
             {resume?.experience?.length ? (
               <section>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-semibold text-white">Experience</h3>
-                  <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Experience</h3>
+                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
                 </div>
                 <div className="mt-6 space-y-4">
                   {resume.experience.map((exp) => (
@@ -183,9 +183,9 @@ export default function HomePage() {
 
             {resume?.academicService?.length ? (
               <section className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-semibold text-white">Academic Service</h3>
-                  <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Academic Service</h3>
+                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
                 </div>
                 <Card>
                   <div className="flex flex-wrap gap-2">
@@ -199,9 +199,9 @@ export default function HomePage() {
 
             {resume?.teaching?.length ? (
               <section className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-semibold text-white">Teaching</h3>
-                  <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Teaching</h3>
+                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
                 </div>
                 {resume.teaching.map((teach) => (
                   <Card key={teach.role + teach.institution}>

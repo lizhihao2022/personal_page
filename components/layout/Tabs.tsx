@@ -17,29 +17,44 @@ type TabsProps = {
 export function Tabs({ compact = false, className }: TabsProps) {
   const [active, setActive] = useState<string>("home");
 
-  // Observe section visibility to highlight the current tab
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => (a.boundingClientRect.top > b.boundingClientRect.top ? 1 : -1));
-        if (visible[0]?.target.id) {
-          setActive(visible[0].target.id);
+    const elements = sections
+      .map(({ id }) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (!elements.length) return;
+
+    const offset = 140; // account for sticky header height
+    let ticking = false;
+
+    const updateFromScroll = () => {
+      const scrollPos = window.scrollY + offset;
+      let current = elements[0]?.id ?? "home";
+      for (const el of elements) {
+        if (el.offsetTop <= scrollPos) {
+          current = el.id;
+        } else {
+          break;
         }
-      },
-      {
-        rootMargin: "-40% 0px -45% 0px",
-        threshold: [0.25, 0.5, 0.75],
-      },
-    );
+      }
+      setActive(current);
+    };
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateFromScroll();
+        ticking = false;
+      });
+    };
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    updateFromScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const prefersReducedMotion = useMemo(

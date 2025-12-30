@@ -34,34 +34,34 @@ export function Header({ name, links, compact }: HeaderProps) {
         compact ? "bg-surface/90 backdrop-blur-md py-2" : "bg-surface/70 backdrop-blur-sm py-4",
       )}
     >
-      <div className="mx-auto flex max-w-3xl flex-col gap-2 px-6">
-        <div className="flex items-center justify-between gap-3">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-6">
+        <div className="flex flex-wrap items-center gap-3">
           <Link href="#home" className="flex items-center gap-2 text-white no-underline focus-ring">
             <Image src="/logo.png" alt="Logo" width={32} height={32} className="h-8 w-auto object-contain" priority />
             <span className="text-sm font-semibold tracking-tight text-slate-100">{name}</span>
           </Link>
-          <div className="flex items-center gap-1.5">
-            {items.map((item) =>
-              isExternalLink(item.href) || isMailLink(item.href) ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  aria-label={item.label}
-                  target={isExternalLink(item.href) ? "_blank" : undefined}
-                  rel={isExternalLink(item.href) ? "noreferrer" : undefined}
-                  className={iconButtonClass}
-                >
-                  <item.icon className="h-4 w-4" />
-                </a>
-              ) : (
-                <Link key={item.label} href={item.href} aria-label={item.label} className={iconButtonClass} prefetch>
-                  <item.icon className="h-4 w-4" />
-                </Link>
-              ),
-            )}
-          </div>
+          <Tabs compact={compact} />
         </div>
-        <Tabs compact={compact} />
+        <div className="flex items-center gap-1.5">
+          {items.map((item) =>
+            isExternalLink(item.href) || isMailLink(item.href) ? (
+              <a
+                key={item.label}
+                href={item.href}
+                aria-label={item.label}
+                target={isExternalLink(item.href) ? "_blank" : undefined}
+                rel={isExternalLink(item.href) ? "noreferrer" : undefined}
+                className={iconButtonClass}
+              >
+                <item.icon className="h-4 w-4" />
+              </a>
+            ) : (
+              <Link key={item.label} href={item.href} aria-label={item.label} className={iconButtonClass} prefetch>
+                <item.icon className="h-4 w-4" />
+              </Link>
+            ),
+          )}
+        </div>
       </div>
     </header>
   );
