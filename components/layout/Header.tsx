@@ -4,7 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteLinks } from "@/content/site";
-import { cn, isExternalLink, isMailLink } from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { IconLink } from "@/components/ui/IconLink";
 import { DblpIcon, FileIcon, GithubIcon, LinkedinIcon, MailIcon, ScholarIcon } from "../icons";
 import { Tabs } from "./Tabs";
 
@@ -13,9 +14,6 @@ type HeaderProps = {
   links: SiteLinks;
   compact: boolean;
 };
-
-const iconButtonClass =
-  "rounded-full bg-white/5 p-2 text-slate-200/80 transition hover:-translate-y-[1px] hover:bg-white/10 hover:text-white focus-ring motion-reduce:transform-none";
 
 export function Header({ name, links, compact }: HeaderProps) {
   const items = [
@@ -45,24 +43,11 @@ export function Header({ name, links, compact }: HeaderProps) {
           <Tabs compact={compact} />
         </div>
         <div className="flex items-center justify-start gap-1.5 sm:justify-end">
-          {items.map((item) =>
-            isExternalLink(item.href) || isMailLink(item.href) ? (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-label={item.label}
-                target={isExternalLink(item.href) ? "_blank" : undefined}
-                rel={isExternalLink(item.href) ? "noreferrer" : undefined}
-                className={iconButtonClass}
-              >
-                <item.icon className="h-4 w-4" />
-              </a>
-            ) : (
-              <Link key={item.label} href={item.href} aria-label={item.label} className={iconButtonClass} prefetch>
-                <item.icon className="h-4 w-4" />
-              </Link>
-            ),
-          )}
+          {items.map((item) => (
+            <IconLink key={item.label} href={item.href} label={item.label}>
+              <item.icon className="h-4 w-4" />
+            </IconLink>
+          ))}
         </div>
       </div>
     </header>

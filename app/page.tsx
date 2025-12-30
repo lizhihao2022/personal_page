@@ -4,14 +4,15 @@ import React from "react";
 import Image from "next/image";
 import { siteConfig, type ExperienceItem } from "@/content/site";
 import { publicationEntries } from "@/content/publications";
-import { FeaturedSection } from "@/components/FeaturedSection";
-import { Footer } from "@/components/Footer";
-import { Hero } from "@/components/Hero";
-import { Card } from "@/components/Card";
-import { Tag } from "@/components/Tag";
+import { FeaturedSection } from "@/components/blocks/FeaturedSection";
+import { Hero } from "@/components/blocks/Hero";
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { useHeaderMode } from "@/hooks/useHeaderMode";
+import { Card } from "@/components/ui/Card";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import { Tag } from "@/components/ui/Tag";
 import { ExternalIcon } from "@/components/icons";
+import { useHeaderMode } from "@/hooks/useHeaderMode";
 import useSWR from "swr";
 
 type HighlightItem = NonNullable<ExperienceItem["highlights"]>[number];
@@ -91,7 +92,7 @@ export default function HomePage() {
     <div className="bg-surface text-slate-100">
       <Header name={siteConfig.name} links={siteConfig.links} compact={isCompact} />
       <main className="mx-auto max-w-3xl px-6 pb-16">
-        <section id="home" className="scroll-mt-32 pt-6">
+        <Section id="home" className="pt-6">
           <Hero
             name={siteConfig.name}
             tagline={siteConfig.tagline}
@@ -107,21 +108,15 @@ export default function HomePage() {
               highlightAuthor={siteConfig.name}
             />
           </div>
-        </section>
+        </Section>
 
-        <section id="resume" className="scroll-mt-32 pt-16">
-          <div className="flex items-center gap-3">
-            <h2 className="text-2xl font-semibold text-white">Resume</h2>
-            <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-          </div>
+        <Section id="resume" className="pt-16">
+          <SectionHeading title="Resume" />
 
           <div className="mt-8 space-y-12">
             {resume?.education?.length ? (
               <section>
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Education</h3>
-                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-                </div>
+                <SectionHeading title="Education" size="sm" accentWidth="w-10" />
                 <div className="mt-6 space-y-4">
                   {resume.education.map((edu) => (
                     <Card key={`${edu.school}-${edu.period}`} className="overflow-hidden">
@@ -158,10 +153,7 @@ export default function HomePage() {
 
             {resume?.experience?.length ? (
               <section>
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Experience</h3>
-                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-                </div>
+                <SectionHeading title="Experience" size="sm" accentWidth="w-10" />
                 <div className="mt-6 space-y-4">
                   {resume.experience.map((exp) => (
                     <Card key={`${exp.role}-${exp.organization}-${exp.period}`} className="overflow-hidden">
@@ -200,10 +192,7 @@ export default function HomePage() {
 
             {resume?.academicService?.length ? (
               <section className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Academic Service</h3>
-                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-                </div>
+                <SectionHeading title="Academic Service" size="sm" accentWidth="w-10" />
                 <Card>
                   <div className="flex flex-wrap gap-2">
                     {resume.academicService.map((item) => (
@@ -216,10 +205,7 @@ export default function HomePage() {
 
             {resume?.teaching?.length ? (
               <section className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Teaching</h3>
-                  <span className="h-[2px] w-10 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-                </div>
+                <SectionHeading title="Teaching" size="sm" accentWidth="w-10" />
                 {resume.teaching.map((teach) => (
                   <Card key={teach.role + teach.institution}>
                     <div className="flex flex-col gap-1">
@@ -240,13 +226,10 @@ export default function HomePage() {
               </section>
             ) : null}
           </div>
-        </section>
+        </Section>
 
-        <section id="publications" className="scroll-mt-32 pt-16">
-          <div className="flex items-center gap-3">
-            <h2 className="text-2xl font-semibold text-white">Publications</h2>
-            <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-          </div>
+        <Section id="publications" className="pt-16">
+          <SectionHeading title="Publications" />
           <div className="mt-6 space-y-4">
             {publicationEntries.map((pub, idx) => (
               <Card key={pub.id} className="fade-up overflow-hidden" style={{ animationDelay: `${200 + idx * 60}ms` }}>
@@ -271,14 +254,14 @@ export default function HomePage() {
                       <p className="text-sm text-slate-400 italic">{pub.venue}</p>
                     </div>
                   </div>
-                  <div className="relative mt-3 flex flex-wrap items-center justify-between gap-3">
+                  <div className="relative mt-3 flex flex-wrap items-center gap-3 sm:flex-nowrap sm:justify-between">
                     <div className="flex flex-wrap gap-2">
                       {pub.tags?.map((tag) => (
                         <Tag key={tag}>{tag}</Tag>
                       ))}
                     </div>
                     {pub.links?.length ? (
-                      <div className="flex flex-wrap gap-3 text-sm text-slate-200">
+                      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200">
                         {pub.links.map((link) => (
                           <a
                             key={link.href}
@@ -308,7 +291,7 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
-        </section>
+        </Section>
 
         <Footer />
       </main>

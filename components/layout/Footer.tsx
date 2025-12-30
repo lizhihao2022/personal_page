@@ -8,8 +8,10 @@ export function Footer() {
     <footer className="mt-16 border-t border-white/10 pt-4">
       <div className="mx-auto flex max-w-3xl flex-col gap-2 px-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
         <div className="flex flex-col gap-1">
-          <span>© {year} {siteConfig.siteName}</span>
-          <span className="text-white/50">{siteConfig.contact.location}</span>
+          <span>
+            © {year} {siteConfig.siteName}
+          </span>
+          <span className="text-white/50">{siteConfig.location}</span>
         </div>
         <div className="flex flex-col items-start gap-1 sm:items-end">
           <span className="font-mono text-white/60">Last updated: {displayDate}</span>

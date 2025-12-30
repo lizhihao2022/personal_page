@@ -1,13 +1,12 @@
-"use client";
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import useSWR from "swr";
 import { Project, Publication } from "@/content/site";
 import { cn, isExternalLink } from "@/lib/utils";
-import { Card } from "./Card";
-import { ExternalIcon } from "./icons";
-import { Tag } from "./Tag";
+import { Card } from "@/components/ui/Card";
+import { Tag } from "@/components/ui/Tag";
+import { SectionHeading } from "@/components/ui/Section";
+import { ExternalIcon } from "@/components/icons";
 
 const linkLabels: Record<string, string> = {
   paper: "Paper",
@@ -48,7 +47,7 @@ function LinkList({ links, className }: LinkListProps) {
 
   return (
     <div className={cn("flex flex-wrap gap-3 text-sm text-slate-200", className)}>
-      {entries.map(([key, href]) => (
+      {entries.map(([key, href]) =>
         isExternalLink(href) ? (
           <a
             key={key}
@@ -71,27 +70,12 @@ function LinkList({ links, className }: LinkListProps) {
             })()}
           </a>
         ) : (
-          <Link
-            key={key}
-            href={href}
-            className="inline-flex items-center gap-2 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
-            prefetch
-          >
+          <span key={key} className="inline-flex items-center gap-2 text-sm font-medium text-slate-200">
             <ExternalIcon className="h-3.5 w-3.5" />
             <span>{linkLabels[key] ?? key}</span>
-            {(() => {
-              const repo = getRepoFromHref(href);
-              const starCount = repo && data?.[repo];
-              if (starCount === undefined) return null;
-              return (
-                <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
-                  ★ {starCount}
-                </span>
-              );
-            })()}
-          </Link>
-        )
-      ))}
+          </span>
+        ),
+      )}
     </div>
   );
 }
@@ -142,12 +126,7 @@ export function FeaturedSection({ projects, publications, highlightAuthor }: Fea
   return (
     <div className="mt-12 space-y-12">
       <section className="fade-up" style={{ animationDelay: "220ms" }}>
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <h2 className="text-2xl font-semibold">Projects</h2>
-            <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-          </div>
-        </div>
+        <SectionHeading title="Projects" />
         <div className="mt-6 space-y-4">
           {projects.map((project, idx) => (
             <Card
@@ -176,12 +155,7 @@ export function FeaturedSection({ projects, publications, highlightAuthor }: Fea
       </section>
 
       <section className="fade-up" style={{ animationDelay: "260ms" }}>
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <h2 className="text-2xl font-semibold">Selected Publications</h2>
-            <span className="h-[2px] w-12 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-300/0" aria-hidden />
-          </div>
-        </div>
+        <SectionHeading title="Selected Publications" />
         <div className="mt-6 space-y-4">
           {publications.map((pub, idx) => (
             <Card

@@ -73,6 +73,8 @@ export type SiteConfig = {
   avatar?: string;
   lastUpdated: string;
   sourceUrl?: string;
+  location: string;
+  infoHubUrl?: string;
   links: SiteLinks;
   featuredProjects: Project[];
   selectedPublications: Publication[];
@@ -82,21 +84,19 @@ export type SiteConfig = {
     academicService: string[];
     teaching: TeachingItem[];
   };
-  contact: {
-    email: string;
-    location: string;
-  };
 };
 
 export const siteConfig: SiteConfig = {
   name: "Zhihao Li",
   siteName: "Zhihao Li",
-  tagline: "PhD Student · DSA Thrust · HKUST(GZ)",
+  tagline: "PhD Student · DSA Thrust · Information Hub · HKUST(GZ)",
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://lizhihao.me",
   avatar: "/avatar.jpg",
   lastUpdated: "2025-12-30",
   sourceUrl: "https://github.com/lizhihao2022/personal_page",
+  location: "[Shenzhen, China]",
+  infoHubUrl: "https://hkust-gz.edu.cn/academics/four-hubs/information-hub",
   links: {
     email: "mailto:zli416@connect.hkust-gz.edu.cn",
     cv: "/Academic_CV_Zhihao.pdf",
@@ -143,7 +143,7 @@ export const siteConfig: SiteConfig = {
         code: "https://github.com/lizhihao2022/AMG",
       },
       cover: "/thumbnail/amg.png",
-      tags: ["Multi-Scale", "Arbitrary Geometry", "Graph Operators"],
+      tags: ["Multi-Scale", "Arbitrary Geometry", "Graph Operator"],
     },
   ],
   resume: {
@@ -213,9 +213,5 @@ export const siteConfig: SiteConfig = {
         ],
       },
     ],
-  },
-  contact: {
-    email: "[zli416ATconnect.hkust-gz.edu.cn]",
-    location: "[Shenzhen, China]",
   },
 };

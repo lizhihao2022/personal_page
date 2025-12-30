@@ -16,7 +16,7 @@ Minimal single-page personal site built with Next.js (App Router) and Tailwind C
 
 ## Editing Content
 
-All editable text, links, projects, and publications are in `content/site.ts`. Update placeholders (name, tagline, bio, links, contact, project/publication entries) and the UI will reflect your changes.
+All editable text, links, projects, and publications are in `content/site.ts`. Update placeholders (name, tagline, bio, links, location, project/publication entries) and the UI will reflect your changes.
 
 ## Deployment
 
