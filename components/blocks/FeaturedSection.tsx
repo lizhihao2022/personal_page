@@ -46,7 +46,7 @@ function LinkList({ links, className }: LinkListProps) {
   if (!entries.length) return null;
 
   return (
-    <div className={cn("flex flex-wrap gap-3 text-sm text-slate-200", className)}>
+    <div className={cn("flex flex-wrap gap-2 text-sm text-slate-200", className)}>
       {entries.map(([key, href]) =>
         isExternalLink(href) ? (
           <a
