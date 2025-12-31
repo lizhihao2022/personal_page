@@ -36,7 +36,9 @@ export function buildMetadata(site: SiteConfig): Metadata {
       images: [image],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: "/logo.png",
+      shortcut: "/logo.png",
+      apple: "/logo.png",
     },
     metadataBase: new URL(url),
   };
