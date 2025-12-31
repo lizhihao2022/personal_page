@@ -250,42 +250,42 @@ export default function HomePage() {
                         <span className="text-slate-500">{pub.year}</span>
                       </div>
                       <h3 className="text-lg font-semibold text-white">{pub.title}</h3>
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <p className="text-sm text-slate-200">{highlightAuthor(pub.authors)}</p>
-                        {pub.links?.length ? (
-                          <div className="flex flex-wrap items-center gap-1.5 text-sm text-slate-200">
-                            {pub.links.map((link) => (
-                              <a
-                                key={link.href}
-                                href={link.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-1.5 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
-                              >
-                                <ExternalIcon className="h-3.5 w-3.5" />
-                                <span>{link.label}</span>
-                                {(() => {
-                                  const repo = link.repo ?? getRepoFromHref(link.href);
-                                  const starCount = repo ? starData?.[repo.toLowerCase()] ?? link.stars : undefined;
-                                  if (starCount === undefined) return null;
-                                  return (
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
-                                      ★ {starCount}
-                                    </span>
-                                  );
-                                })()}
-                              </a>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
+                      <p className="text-sm text-slate-200">{highlightAuthor(pub.authors)}</p>
                       <p className="text-sm text-slate-400 italic">{pub.venue}</p>
                     </div>
                   </div>
-                  <div className="relative mt-3 flex flex-wrap gap-2">
-                    {pub.tags?.map((tag) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
+                  <div className="relative mt-3 flex flex-wrap items-center gap-3 sm:flex-nowrap sm:justify-between">
+                    <div className="flex flex-wrap gap-2">
+                      {pub.tags?.map((tag) => (
+                        <Tag key={tag}>{tag}</Tag>
+                      ))}
+                    </div>
+                    {pub.links?.length ? (
+                      <div className="flex flex-wrap items-center gap-1.5 text-sm text-slate-200">
+                        {pub.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium focus-ring underline decoration-slate-500/60 decoration-2 underline-offset-4 transition hover:decoration-sky-300"
+                          >
+                            <ExternalIcon className="h-3.5 w-3.5" />
+                            <span>{link.label}</span>
+                            {(() => {
+                              const repo = link.repo ?? getRepoFromHref(link.href);
+                              const starCount = repo ? starData?.[repo.toLowerCase()] ?? link.stars : undefined;
+                              if (starCount === undefined) return null;
+                              return (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100 no-underline decoration-transparent">
+                                  ★ {starCount}
+                                </span>
+                              );
+                            })()}
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </Card>
