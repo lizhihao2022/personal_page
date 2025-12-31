@@ -93,7 +93,7 @@ export const siteConfig: SiteConfig = {
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://lizhihao.me",
   avatar: "/avatar.jpg",
-  lastUpdated: "2025-12-30",
+  lastUpdated: "2025-12-31",
   sourceUrl: "https://github.com/lizhihao2022/personal_page",
   location: "[Shenzhen, China]",
   infoHubUrl: "https://hkust-gz.edu.cn/academics/four-hubs/information-hub",

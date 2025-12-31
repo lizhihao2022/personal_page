@@ -32,9 +32,9 @@ export function Hero({
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-2xl">
           <p className={labelStyles}>Profile</p>
-          <div className="mt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="mt-2 flex flex-wrap items-end gap-3 sm:gap-4">
             <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">{name}</h1>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 pb-1 sm:pb-[2px]">
               <IconLink href={links.email} label="Email">
                 <MailIcon className="h-4 w-4" />
               </IconLink>

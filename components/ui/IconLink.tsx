@@ -11,7 +11,7 @@ type IconLinkProps = {
 
 export function IconLink({ href, label, className, children }: IconLinkProps) {
   const baseClass =
-    "rounded-full bg-white/5 p-2 text-slate-200/80 transition hover:-translate-y-[1px] hover:bg-white/10 hover:text-white focus-ring motion-reduce:transform-none";
+    "rounded-full border border-transparent bg-white/5 p-2 text-slate-200/80 transition hover:-translate-y-[1px] hover:bg-white/10 hover:text-white hover:border-sky-300 focus-visible:border-sky-300 focus-visible:ring-1 focus-visible:ring-sky-300 focus-visible:ring-offset-0 focus-ring motion-reduce:transform-none";
 
   if (isExternalLink(href) || isMailLink(href)) {
     return (
