@@ -73,9 +73,9 @@ export function Hero({
             <Image
               src={avatar}
               alt={`${name} portrait`}
-              width={140}
-              height={140}
-              className="h-28 w-28 rounded-full border border-white/10 object-cover shadow-subtle sm:h-32 sm:w-32"
+              width={156}
+              height={156}
+              className="h-32 w-32 rounded-full border border-white/10 object-cover shadow-subtle sm:h-36 sm:w-36"
               priority
             />
           </div>

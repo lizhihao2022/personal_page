@@ -92,8 +92,8 @@ export const siteConfig: SiteConfig = {
   tagline: "PhD Student · DSA Thrust · Information Hub · HKUST(GZ)",
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://lizhihao.me",
-  avatar: "/avatar.jpg",
-  lastUpdated: "2025-12-31",
+  avatar: "/IMG_3831.JPG",
+  lastUpdated: "2026-03-02",
   sourceUrl: "https://github.com/lizhihao2022/personal_page",
   location: "[Shenzhen, China]",
   infoHubUrl: "https://hkust-gz.edu.cn/academics/four-hubs/information-hub",
@@ -119,6 +119,17 @@ export const siteConfig: SiteConfig = {
     },
   ],
   selectedPublications: [
+    {
+      title: "Physics-Consistent Diffusion for Efficient Fluid Super-Resolution via Multiscale Residual Correction",
+      authors: "Zhihao Li, Shengwei Dong, Chuang Yi, Junxuan Gao, Zhilu Lai, Zhiqiang Liu, Wei Wang, Guangtao Zhang",
+      venue: "CVPR",
+      year: 2026,
+      links: {
+        code: "https://github.com/lizhihao2022/ReMD"
+      },
+      cover: "/thumbnail/remd.png",
+      tags: ["Fluid", "Super-Resolution", "Diffusion Model", "Multigrid"],
+    },
     {
       title: "M2NO: An Efficient Multi-Resolution Operator Framework for Dynamic Multi-Scale PDE Solvers",
       authors: "Zhihao Li, Zhilu Lai, Xiaobo Zhang, Wei Wang",
@@ -202,7 +213,10 @@ export const siteConfig: SiteConfig = {
         logo: "/logos/cuhk.png",
       },
     ],
-    academicService: ["Reviewer (2025): NeurIPS, ICLR, AAAI, AI4Math@ICML"],
+    academicService: [
+      "Reviewer (2026): ICML, KDD", 
+      "Reviewer (2025): NeurIPS, ICLR, AAAI, AI4Math@ICML"
+    ],
     teaching: [
       {
         role: "Graduate Teaching Assistant",

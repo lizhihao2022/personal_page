@@ -19,6 +19,32 @@ export type PublicationEntry = {
 
 export const publicationEntries: PublicationEntry[] = [
   {
+    id: "C4",
+    title: "Physics-Consistent Diffusion for Efficient Fluid Super-Resolution via Multiscale Residual Correction",
+    authors: "Zhihao Li, Shengwei Dong, Chuang Yi, Junxuan Gao, Zhilu Lai, Zhiqiang Liu, Wei Wang, Guangtao Zhang",
+    year: 2026,
+    venue: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    type: "C",
+    links: [
+      { label: "GitHub", href: "https://github.com/lizhihao2022/ReMD", stars: 0, repo: "lizhihao2022/ReMD" },
+    ],
+    tags: ["Fluid", "Super-Resolution", "Diffusion Model", "Multigrid"],
+    logo: "/logos/cvpr.png",
+  },
+  {
+    id: "P3",
+    title: "From Basis to Basis: Gaussian Particle Representation for Interpretable PDE Operators",
+    authors: "Zhihao Li, Yu Feng, Zhilu Lai, Wei Wang",
+    year: 2026,
+    venue: "Preprint",
+    type: "P",
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2602.21551" },
+    ],
+    tags: ["Gaussian Particles", "Interpretable Operators"],
+    logo: "/logos/arxiv.svg",
+  },
+  {
     id: "P2",
     title: " Neural Preconditioning Operator for Efficient PDE Solves",
     authors: "Zhihao Li, Di Xiao, Zhilu Lai, Wei Wang",
@@ -83,7 +109,10 @@ export const publicationEntries: PublicationEntry[] = [
     year: 2022,
     venue: "Preprint",
     type: "P",
-    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2202.13852" }],
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2202.13852" },
+      { label: "GitHub", href: "https://github.com/digailab/awesome-hyperbolic-graph-learning", stars: 0, repo: "digailab/awesome-hyperbolic-graph-learning" },
+    ],
     tags: ["Survey", "Hyperbolic", "Graph Neural Networks"],
     logo: "/logos/arxiv.svg",
   },
