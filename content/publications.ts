@@ -26,9 +26,10 @@ export const publicationEntries: PublicationEntry[] = [
     venue: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
     type: "C",
     links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2603.00149" },
       { label: "GitHub", href: "https://github.com/lizhihao2022/ReMD", stars: 0, repo: "lizhihao2022/ReMD" },
     ],
-    tags: ["Fluid", "Super-Resolution", "Diffusion Model", "Multigrid"],
+    tags: ["Fluid", "SR", "Diffusion", "Multigrid"],
     logo: "/logos/cvpr.png",
   },
   {

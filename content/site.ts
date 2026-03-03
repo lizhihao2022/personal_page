@@ -93,7 +93,7 @@ export const siteConfig: SiteConfig = {
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://lizhihao.me",
   avatar: "/IMG_3831.JPG",
-  lastUpdated: "2026-03-02",
+  lastUpdated: "2026-03-03",
   sourceUrl: "https://github.com/lizhihao2022/personal_page",
   location: "[Shenzhen, China]",
   infoHubUrl: "https://hkust-gz.edu.cn/academics/four-hubs/information-hub",
@@ -121,14 +121,15 @@ export const siteConfig: SiteConfig = {
   selectedPublications: [
     {
       title: "Physics-Consistent Diffusion for Efficient Fluid Super-Resolution via Multiscale Residual Correction",
-      authors: "Zhihao Li, Shengwei Dong, Chuang Yi, Junxuan Gao, Zhilu Lai, Zhiqiang Liu, Wei Wang, Guangtao Zhang",
+      authors: "Zhihao Li, ..., Zhiqiang Liu, Wei Wang, Guangtao Zhang",
       venue: "CVPR",
       year: 2026,
       links: {
+        arxiv: "https://arxiv.org/abs/2603.00149",
         code: "https://github.com/lizhihao2022/ReMD"
       },
       cover: "/thumbnail/remd.png",
-      tags: ["Fluid", "Super-Resolution", "Diffusion Model", "Multigrid"],
+      tags: ["Fluid", "SR", "Diffusion", "Multigrid"],
     },
     {
       title: "M2NO: An Efficient Multi-Resolution Operator Framework for Dynamic Multi-Scale PDE Solvers",
@@ -183,7 +184,7 @@ export const siteConfig: SiteConfig = {
       {
         role: "AI Engineering Intern",
         organization: "Huawei 2012 Lab",
-        period: "Aug 2025 – Present",
+        period: "Aug 2025 – Mar 2026",
         details: "Led end-to-end development of an ocean modeling system on Huawei Ascend using MindSpore.",
         highlights: [
           { label: "Leader: Dr. Fan Yu" },
