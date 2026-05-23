@@ -19,6 +19,20 @@ export type PublicationEntry = {
 
 export const publicationEntries: PublicationEntry[] = [
   {
+    id: "C5",
+    title: "From Basis to Basis: Gaussian Particle Representation for Interpretable PDE Operators",
+    authors: "Zhihao Li, Yu Feng, Zhilu Lai, Wei Wang",
+    year: 2026,
+    venue: "Proceedings of the International Conference on Machine Learning",
+    type: "C",
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2602.21551" },
+      { label: "GitHub", href: "https://github.com/lizhihao2022/GPO", stars: 0, repo: "lizhihao2022/GPO" }
+    ],
+    tags: ["Gaussian Particles", "Interpretable Operators"],
+    logo: "/logos/icml.svg",
+  },
+  {
     id: "C4",
     title: "Physics-Consistent Diffusion for Efficient Fluid Super-Resolution via Multiscale Residual Correction",
     authors: "Zhihao Li, Shengwei Dong, Chuang Yi, Junxuan Gao, Zhilu Lai, Zhiqiang Liu, Wei Wang, Guangtao Zhang",
@@ -31,19 +45,6 @@ export const publicationEntries: PublicationEntry[] = [
     ],
     tags: ["Fluid", "SR", "Diffusion", "Multigrid"],
     logo: "/logos/cvpr.png",
-  },
-  {
-    id: "P3",
-    title: "From Basis to Basis: Gaussian Particle Representation for Interpretable PDE Operators",
-    authors: "Zhihao Li, Yu Feng, Zhilu Lai, Wei Wang",
-    year: 2026,
-    venue: "Preprint",
-    type: "P",
-    links: [
-      { label: "arXiv", href: "https://arxiv.org/abs/2602.21551" },
-    ],
-    tags: ["Gaussian Particles", "Interpretable Operators"],
-    logo: "/logos/arxiv.svg",
   },
   {
     id: "P2",

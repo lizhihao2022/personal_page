@@ -93,7 +93,7 @@ export const siteConfig: SiteConfig = {
   bio: "My research focuses on AI for Science, particularly AI for PDEs, which involves leveraging machine learning to solve partial differential equations (PDEs) in interdisciplinary applications.",
   siteUrl: "https://lizhihao.me",
   avatar: "/IMG_3831.JPG",
-  lastUpdated: "2026-03-03",
+  lastUpdated: "2026-05-23",
   sourceUrl: "https://github.com/lizhihao2022/personal_page",
   location: "[Shenzhen, China]",
   infoHubUrl: "https://hkust-gz.edu.cn/academics/four-hubs/information-hub",
@@ -119,6 +119,18 @@ export const siteConfig: SiteConfig = {
     },
   ],
   selectedPublications: [
+    {
+      title: "From Basis to Basis: Gaussian Particle Representation for Interpretable PDE Operators",
+      authors: "Zhihao Li, Yu Feng, Zhilu Lai, Wei Wang",
+      venue: "ICML",
+      year: 2026,
+      links: {
+        arxiv: "https://arxiv.org/abs/2602.21551",
+        code: "https://github.com/lizhihao2022/GPO"
+      },
+      tags: ["Gaussian Particles", "Interpretable Operators"],
+      cover: "/thumbnail/gpo.png",
+    },
     {
       title: "Physics-Consistent Diffusion for Efficient Fluid Super-Resolution via Multiscale Residual Correction",
       authors: "Zhihao Li, ..., Zhiqiang Liu, Wei Wang, Guangtao Zhang",
@@ -215,8 +227,8 @@ export const siteConfig: SiteConfig = {
       },
     ],
     academicService: [
-      "Reviewer (2026): ICML, KDD", 
-      "Reviewer (2025): NeurIPS, ICLR, AAAI, AI4Math@ICML"
+      "Reviewer (2026): ICML, ICLR, NeurIPS, KDD", 
+      "Reviewer (2025): NeurIPS, AAAI, AI4Math@ICML"
     ],
     teaching: [
       {
